@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { PageTab, ResourceArticle, InteractiveChecklist } from '../types';
 import { RESOURCE_CATEGORIES, INTERACTIVE_CHECKLISTS } from '../data/resourcesData';
-import heroBgImage from '../assets/images/hero_education_bg_1788027993796.jpg';
 import { 
   BookOpen, 
   Users, 
@@ -18,8 +17,12 @@ import {
   HeartHandshake,
   MessageSquare,
   ChevronRight,
-  ClipboardList
+  ClipboardList,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
+
+const HERO_VIDEO_URL = 'https://edc8ne5pnrahkqbm.public.blob.vercel-storage.com/Create_video_for_education_found%E2%80%A6_202608292358.mp4';
 
 interface HomeViewProps {
   setActiveTab: (tab: PageTab) => void;
@@ -32,6 +35,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
   onSelectArticle,
   onSelectChecklist,
 }) => {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      const nextMuted = !isMuted;
+      videoRef.current.muted = nextMuted;
+      setIsMuted(nextMuted);
+      if (!nextMuted) {
+        videoRef.current.play().catch(() => {});
+      }
+    }
+  };
+
   const getCategoryIcon = (id: string) => {
     switch (id) {
       case 'understanding-education': return BookOpen;
@@ -48,15 +65,41 @@ export const HomeView: React.FC<HomeViewProps> = ({
     <div className="space-y-16 sm:space-y-24 pb-16">
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden bg-gradient-to-b from-blue-950 via-slate-900 to-indigo-950 text-white pt-16 pb-20 sm:pt-20 sm:pb-28 border-b border-slate-800">
-        {/* Background Image with Dark Contrast Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={heroBgImage}
-            alt="Parents and children studying together in an educational library setting"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover object-center opacity-30 filter saturate-125"
+        {/* Background Video with Dark Contrast Overlay */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video
+            ref={videoRef}
+            src={HERO_VIDEO_URL}
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+            className="w-full h-full object-cover object-center opacity-65 filter saturate-125 brightness-105 pointer-events-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/95 via-slate-950/85 to-indigo-950/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/75 via-slate-950/65 to-indigo-950/80 pointer-events-none" />
+        </div>
+
+        {/* Floating Hero Audio Control Button */}
+        <div className="absolute top-6 right-6 z-20">
+          <button
+            onClick={toggleMute}
+            id="hero-video-audio-toggle"
+            type="button"
+            aria-label={isMuted ? "Unmute background video" : "Mute background video"}
+            className="flex items-center space-x-2 px-3.5 py-2 rounded-full bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 text-white text-xs font-semibold backdrop-blur-md shadow-lg transition-all duration-150 hover:scale-105"
+          >
+            {isMuted ? (
+              <>
+                <VolumeX className="w-4 h-4 text-slate-400" />
+                <span className="text-slate-300">Unmute Video</span>
+              </>
+            ) : (
+              <>
+                <Volume2 className="w-4 h-4 text-teal-400 animate-pulse" />
+                <span className="text-teal-300">Audio Playing</span>
+              </>
+            )}
+          </button>
         </div>
 
         {/* Subtle background ambient geometric styling */}
@@ -71,7 +114,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <span>Nonprofit Support • Waltham, MA</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] drop-shadow-md">
               Empowering Parents. <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-teal-300 to-amber-300">
                 Supporting Students.
@@ -79,7 +122,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               Strengthening Education.
             </h1>
 
-            <p className="text-base sm:text-xl text-slate-200 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl text-slate-100 leading-relaxed max-w-2xl mx-auto drop-shadow-sm font-medium">
               Parents Education Foundation provides parents in Massachusetts and beyond with the information, tools, and resources they need to stay informed and actively involved in their children's education.
             </p>
 

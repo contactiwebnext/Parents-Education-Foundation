@@ -69,8 +69,10 @@ export const AboutView: React.FC<AboutViewProps> = ({ setActiveTab }) => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-slate-900 block">Headquarters:</span>
-                  <span className="text-slate-600">Waltham, Massachusetts</span>
+                  <span className="font-bold text-slate-900 block">Mailing Address:</span>
+                  <span className="text-slate-700 font-medium block">Parents Education Foundation</span>
+                  <span className="text-slate-600 block">PO Box 1612</span>
+                  <span className="text-slate-600 block">Waltham, MA 02454</span>
                 </div>
               </div>
 

@@ -164,7 +164,7 @@ export const GetInvolvedView: React.FC<GetInvolvedViewProps> = ({ setActiveTab }
                 </div>
                 <div className="flex items-center space-x-2 text-slate-600">
                   <MapPin className="w-4 h-4 text-teal-600" />
-                  <span>Location: Waltham, MA</span>
+                  <span>Mailing Address: PO Box 1612, Waltham, MA 02454</span>
                 </div>
               </div>
             </div>

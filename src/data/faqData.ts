@@ -10,7 +10,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: 'faq-2',
     question: 'How can I get in touch with Parents Education Foundation?',
-    answer: 'You can easily reach our Waltham, MA office by phone at 781-890-6001, by email at BCamenker@yahoo.com, or by using the interactive contact form on this website. We welcome inquiries from parents, educators, and community members.',
+    answer: 'You can easily reach Parents Education Foundation by phone at 781-890-6001, by email at BCamenker@yahoo.com, by mail at PO Box 1612, Waltham, MA 02454, or by using the interactive contact form on this website. We welcome inquiries from parents, educators, and community members.',
     category: 'Contact',
   },
   {

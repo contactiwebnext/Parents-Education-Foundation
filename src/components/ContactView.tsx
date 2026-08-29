@@ -152,17 +152,17 @@ export const ContactView: React.FC = () => {
             </div>
           </a>
 
-          {/* Card 3: Location */}
+          {/* Card 3: Location / Mailing Address */}
           <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 shadow-md flex items-center space-x-4">
             <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-900 flex items-center justify-center shrink-0">
               <MapPin className="w-6 h-6 text-amber-700" />
             </div>
             <div>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Office Location</span>
-              <span className="text-base font-extrabold text-slate-900">
-                Waltham, MA
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Mailing Address</span>
+              <span className="text-sm sm:text-base font-extrabold text-slate-900 block">
+                PO Box 1612
               </span>
-              <span className="text-xs text-slate-500 block">Massachusetts & Beyond</span>
+              <span className="text-xs text-slate-600 font-medium block">Waltham, MA 02454</span>
             </div>
           </div>
         </div>
@@ -332,9 +332,10 @@ export const ContactView: React.FC = () => {
 
               <div className="space-y-4 text-xs sm:text-sm">
                 <div className="space-y-1">
-                  <span className="text-slate-400 font-bold uppercase tracking-wider text-[11px] block">Location</span>
-                  <p className="text-white font-semibold">Waltham, Massachusetts</p>
-                  <p className="text-slate-300 text-xs">Middlesex County • Serving MA & Beyond</p>
+                  <span className="text-slate-400 font-bold uppercase tracking-wider text-[11px] block">Mailing Address</span>
+                  <p className="text-white font-semibold">Parents Education Foundation</p>
+                  <p className="text-teal-300 font-medium text-xs">PO Box 1612</p>
+                  <p className="text-slate-300 text-xs">Waltham, MA 02454</p>
                 </div>
 
                 <div className="space-y-1">

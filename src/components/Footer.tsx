@@ -126,8 +126,8 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenAssistant })
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs text-slate-500 block">Headquarters</span>
-                  <span className="text-slate-300 font-medium">Waltham, MA 02451</span>
+                  <span className="text-xs text-slate-500 block">Mailing Address</span>
+                  <span className="text-slate-300 font-medium">PO Box 1612, Waltham, MA 02454</span>
                 </div>
               </div>
             </div>
