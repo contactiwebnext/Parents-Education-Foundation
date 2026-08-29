@@ -1,0 +1,6 @@
+{
+  "name": "Parents Education Foundation",
+  "description": "Providing parents in Massachusetts and beyond with the knowledge, resources, tools, and support to stay informed and actively involved in their children's education.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
